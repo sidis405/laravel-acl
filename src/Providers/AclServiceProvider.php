@@ -2,9 +2,10 @@
 
 namespace Sid\Acl\Providers;
 
-use Sid\Acl\Models\Permission;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Config;
+use Sid\Acl\Models\Permission;
 
 class AclServiceProvider extends ServiceProvider
 {
@@ -19,14 +20,25 @@ class AclServiceProvider extends ServiceProvider
      */
     public function boot(GateContract $gate)
     {
-        $this->exportMigration();
+        $this->exportConfigAndMigrations();
         
+        if($this->enabled()){
         // Dynamically register permissions with Laravel's Gate.
-        foreach ($this->getPermissions() as $permission) {
-            $gate->define($permission->name, function ($user) use ($permission) {
-                return $user->hasPermission($permission);
-            });
+            foreach ($this->getPermissions() as $permission) {
+                $gate->define($permission->name, function ($user) use ($permission) {
+                    return $user->hasPermission($permission);
+                });
+            }
         }
+        
+    }
+
+    public function enabled()
+    {
+        $config = Config::get('acl');
+
+        return $config['enabled'];
+
     }
 
     /**
@@ -39,12 +51,16 @@ class AclServiceProvider extends ServiceProvider
         return Permission::with('roles')->get();
     }
 
-    public function exportMigration()
+    public function exportConfigAndMigrations()
     {
         $timestamp = date('Y_m_d_His', time());
 
         $this->publishes([
-                __DIR__.'/../resources/migrations/create_acl_tables.php.stub' => $this->app->basePath().'/'.'database/migrations/'.$timestamp.'_create_acl_tables.php',
-            ], 'migrations');
+                __DIR__.'/../../resources/migrations/create_acl_tables.stub' => $this->app->basePath().'/'.'database/migrations/'.$timestamp.'_create_acl_tables.php',
+            ], 'migrations');        
+
+        $this->publishes([
+        __DIR__.'/../../resources/config/acl.php' => config_path('acl.php'),
+        ]);
     }
 }
