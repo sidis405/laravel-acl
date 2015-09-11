@@ -4,11 +4,15 @@ add to composer.json
 
 "sid/laravel-acl":"dev-master" 
 
-php artisan vendor:publish --provider="Sid\Acl\AclServiceProvider" --tag="migrations"
-
 Sid\Acl\Providers\AclServiceProvider::class
 
 composer-dump autoload
+
+php artisan vendor:publish
+
+php artisan migrate
+
+config/acl.php : enabled -true
 
 use Sid\Acl\Traits\HasRoles; to App\User
 
