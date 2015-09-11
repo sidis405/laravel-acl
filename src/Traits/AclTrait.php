@@ -2,6 +2,7 @@
 
 namespace Sid\Acl\Traits;
 
+use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Support\Facades\Config;
 use Sid\Acl\Models\Permission;
 
