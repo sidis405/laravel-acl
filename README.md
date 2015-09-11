@@ -4,7 +4,7 @@
 This laravel package adds structured ACL (roles and permissions) to Laravel >= 5.1.11
 
 - Very alpha stages. Not unstable but i need to write tests for it.
-- If you think it's a good staring point for you, take it.
+- If you think it's a good starting point for you, take it.
 
 
 ###Installation
