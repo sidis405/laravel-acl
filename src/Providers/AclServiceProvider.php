@@ -22,7 +22,7 @@ class AclServiceProvider extends ServiceProvider
      */
     public function boot(GateContract $gate)
     {
-        $this->exportConfigAndMigrations();
+        $this->exportConfigAndMigrations($this);
         
         $this->registerAcl($gate);
         
