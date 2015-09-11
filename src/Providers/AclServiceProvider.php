@@ -9,7 +9,7 @@ use Sid\Traits\ProviderTrait;
 class AclServiceProvider extends ServiceProvider
 {
 
-    use ProviderTrait;
+    use AclTrait, ProviderTrait;
 
     protected $defer = false;
 
