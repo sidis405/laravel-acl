@@ -4,7 +4,7 @@ namespace Sid\Acl\Traits;
 
 trait ProviderTrait
 {
-    public function exportConfigAndMigrations()
+    public function exportConfigAndMigrations($provider)
     {
         $timestamp = date('Y_m_d_His', time());
 
