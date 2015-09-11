@@ -1,10 +1,12 @@
 # WORKING ON THIS
 
-composer install sid/laravel-acl
+add to composer.json 
 
-php artisan vendor:publish --provider="Sid\Acl\AclServiceProvider" --tag="migrations
+"sid/laravel-acl":"dev-master" 
 
-Sid\Acl\Providers\AclProvider::class
+php artisan vendor:publish --provider="Sid\Acl\AclServiceProvider" --tag="migrations"
+
+Sid\Acl\Providers\AclServiceProvider::class
 
 composer-dump autoload
 

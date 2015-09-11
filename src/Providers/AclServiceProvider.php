@@ -8,7 +8,9 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 
 class AclServiceProvider extends ServiceProvider
 {
-    
+
+    protected $defer = false;
+
     /**
      * Register any application authentication / authorization services.
      *
@@ -17,6 +19,8 @@ class AclServiceProvider extends ServiceProvider
      */
     public function boot(GateContract $gate)
     {
+        $this->exportMigration();
+        
         // Dynamically register permissions with Laravel's Gate.
         foreach ($this->getPermissions() as $permission) {
             $gate->define($permission->name, function ($user) use ($permission) {
@@ -33,5 +37,14 @@ class AclServiceProvider extends ServiceProvider
     protected function getPermissions()
     {
         return Permission::with('roles')->get();
+    }
+
+    public function exportMigration()
+    {
+        $timestamp = date('Y_m_d_His', time());
+
+        $this->publishes([
+                __DIR__.'/../resources/migrations/create_acl_tables.php.stub' => $this->app->basePath().'/'.'database/migrations/'.$timestamp.'_create_acl_tables.php',
+            ], 'migrations');
     }
 }
