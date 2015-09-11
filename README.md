@@ -40,10 +40,14 @@ Migrate the ACL tables
 php artisan migrate
 ```
 
-Enable IT!
+Enable it. Modify config/acl.php
 
 ```php
-config/acl.php : enabled -true
+return [
+    
+    'enabled' => false
+    
+];
 ```
 
 In you User model, import the trait
