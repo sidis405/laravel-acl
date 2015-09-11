@@ -2,6 +2,9 @@
 
 This laravel package add structured ACL (roles and permissions) to Laravel >= 5.1.11
 
+-- Very alpha stages. Not unstable but i need to write tests for it.
+-- If you think it's a good staring point for you, take it.
+
 
 ###Installation
 Add to composer.json 
@@ -42,5 +45,10 @@ use Authenticatable, Authorizable, CanResetPassword, HasRoles;
 Deliberately inspired by Jeffrey Way's [lesson](https://laracasts.com/series/whats-new-in-laravel-5-1/episodes/16) at Laracasts.
 
 ###Todo
+- Test. Tests. Tests.
 - Expanded documentation on adding roles and permissions
 - Management controllers and views
+
+# Contributing
+
+Contributions are **welcome** and will be fully **credited**.
