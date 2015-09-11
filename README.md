@@ -1,3 +1,6 @@
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sidis405/laravel-acl/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sidis405/laravel-acl/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/sidis405/laravel-acl/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sidis405/laravel-acl/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/sidis405/laravel-acl/badges/build.png?b=master)](https://scrutinizer-ci.com/g/sidis405/laravel-acl/build-status/master)
+
 This laravel package adds structured ACL (roles and permissions) to Laravel >= 5.1.11
 
 -- Very alpha stages. Not unstable but i need to write tests for it.
