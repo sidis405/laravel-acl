@@ -1,0 +1,38 @@
+{
+  "name": "sid/laravel-acl",
+  "description": "Add structured ACL to Laravel >= 5.1.11",
+  "keywords": [
+    "sid",
+    "laravel-acl",
+    "acl",
+    "laravel"
+  ],
+  "homepage": "https://github.com/sidis405/laravel-acl",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sidrit Trandafili",
+      "email": "forge405@gmail",
+      "homepage": "http://sidrit.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php" : ">=5.5.0",
+    "illuminate/support": "^5.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit" : "4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sid\\Acl\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Sid\\Acl\\Test\\": "tests"
+    }
+  },
+  "license": "MIT"
+}
