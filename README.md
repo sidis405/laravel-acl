@@ -15,31 +15,51 @@ Add to composer.json
 
 Register the service provider by adding in the provider section in config/app.php
 
+```php
 'providers' => [
     ...
     Sid\Acl\Providers\AclServiceProvider::class
     ...
+```
 
 Just in case
+
+```php
 composer dump-autoload
+```
 
 Publish the migration and the config file
+
+```php
 php artisan vendor:publish
+```
 
 Migrate the ACL tables
+
+```php
 php artisan migrate
+```
 
 Enable IT!
+
+```php
 config/acl.php : enabled -true
+```
 
 In you User model, import the trait
+
+```php
 use Sid\Acl\Traits\HasRoles; to App\User
+```
 
 ... and use it. Like so.
 
+```php
 ...
 use Authenticatable, Authorizable, CanResetPassword, HasRoles;
 ...
+```
+
 
 ###Credits
 Deliberately inspired by Jeffrey Way's [lesson](https://laracasts.com/series/whats-new-in-laravel-5-1/episodes/16) at Laracasts.
