@@ -19,7 +19,7 @@ trait AclTrait
         return Permission::with('roles')->get();
     }
 
-    public function registerAcl()
+    public function registerAcl(GateContract $gate)
     {
         if($this->enabled()){
         // Dynamically register permissions with Laravel's Gate.
@@ -29,6 +29,6 @@ trait AclTrait
                 });
             }
         }
-        
+
     }
 }

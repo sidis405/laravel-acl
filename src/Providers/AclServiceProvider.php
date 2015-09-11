@@ -23,7 +23,7 @@ class AclServiceProvider extends ServiceProvider
     {
         $this->exportConfigAndMigrations();
         
-        $this->registerAcl();
+        $this->registerAcl($gate);
         
     }
 
